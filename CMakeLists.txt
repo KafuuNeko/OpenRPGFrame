@@ -10,4 +10,4 @@ set(CMAKE_CXX_FLAGS "-O2")
 add_subdirectory(third_party)
 
 add_executable(OpenRPGFrame src/main.cc)
-target_link_libraries(OpenRPGFrame PRIVATE lepton)
+target_link_libraries(OpenRPGFrame PRIVATE lepton md5 cppcrc)

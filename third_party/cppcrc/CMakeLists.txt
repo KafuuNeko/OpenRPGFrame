@@ -6,8 +6,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_CXX_FLAGS "-pthread")
 
-include_directories(include)
-
 add_definitions(-DCPPCRC_THREADSAFE) 
 
 add_library(cppcrc 
@@ -20,4 +18,4 @@ add_library(cppcrc
     src/code_crcdnp.cc
 )
 
-
+target_include_directories(cppcrc PUBLIC include)
