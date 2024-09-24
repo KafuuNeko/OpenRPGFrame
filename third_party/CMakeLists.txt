@@ -5,3 +5,5 @@ add_subdirectory(lepton)
 add_subdirectory(md5)
 
 add_subdirectory(cppcrc)
+
+add_subdirectory(sqlite_orm)
