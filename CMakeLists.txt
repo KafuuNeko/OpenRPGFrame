@@ -8,6 +8,6 @@ set(CMAKE_CXX_FLAGS "-O2")
 
 add_subdirectory(third_party)
 
-add_executable(OpenRPGFrame src/main.cc src/db/database.cc)
+add_executable(OpenRPGFrame src/main.cc src/db/database.cc src/logger/logger.cc)
 target_include_directories(OpenRPGFrame PUBLIC src)
-target_link_libraries(OpenRPGFrame PRIVATE lepton md5 cppcrc sqlite_orm)
+target_link_libraries(OpenRPGFrame PRIVATE lepton md5 cppcrc sqlite_orm spdlog)

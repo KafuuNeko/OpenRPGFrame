@@ -2,9 +2,11 @@
 #include "db/models/user_model.h"
 #include <iostream>
 #include <ostream>
-
+#include <logger/logger.h>
 
 int main() {
+  logger::InitLogger();
+  
   auto db = frame::db::InitDatabase("./test.sqlite");
   auto user = frame::db::UserModel{-1, "kafuu", 0, 0};
   auto id = db->GetUserRepository()->InsertUser(user);

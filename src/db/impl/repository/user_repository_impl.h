@@ -7,6 +7,7 @@
 #include <system_error>
 
 #include "sqlite_orm.h"
+#include "logger/logger.h"
 
 #include "db/models/user_model.h"
 #include "db/repository/user_repository.h"
@@ -22,9 +23,10 @@ public:
 
   std::unique_ptr<UserModel> QueryUserById(int64_t uid) override {
     try {
-      return std::make_unique<UserModel>(
-          std::move(storage_.template get<UserModel>(uid)));
+      auto model = storage_.template get<UserModel>(uid);
+      return std::make_unique<UserModel>(std::move(model));
     } catch (std::system_error e) {
+      logger::kDb->warn("Query user failed, uid={}, message={}", uid, e.what());
     }
     return std::make_unique<UserModel>();
   }
